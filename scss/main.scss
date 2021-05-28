@@ -1,0 +1,9 @@
+@use 'abstracts' as *;
+@use 'header';
+@use 'products';
+
+html,
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: $primary-light;
+}

@@ -1,0 +1,381 @@
+.btn {
+  padding: 0.5rem 1rem;
+  background: #E8E3DA;
+  border: 1px solid #5C5A56;
+  color: #5C5A56;
+  transition: all 0.5s ease;
+  position: relative;
+}
+.btn::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(192, 188, 180, 0.3);
+  clip-path: ellipse(0% 0% at 0% 0%);
+  transition: all 0.5s ease;
+}
+.btn:hover {
+  color: #5C5A56;
+}
+.btn:hover::after {
+  clip-path: ellipse(150% 150% at 0% 0%);
+}
+
+.heading {
+  margin-bottom: 6rem;
+  align-items: center;
+}
+.heading .ring {
+  width: 30px;
+  height: 30px;
+  border-radius: 100%;
+  border: 2px solid #5C5A56;
+  position: relative;
+  display: inline-block;
+}
+.heading .ring .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 30px;
+  height: 2px;
+  background: #5C5A56;
+}
+.heading h1 {
+  color: #5C5A56;
+  margin-left: 2rem;
+  margin-bottom: 1rem;
+  display: inline-block;
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+@media only screen and (max-width: 575px) {
+  .heading h1 {
+    font-size: 1.5rem;
+  }
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  text-decoration: none;
+  user-select: none !important;
+}
+
+/* Remove default margin */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none !important;
+}
+
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-family: "Lato", sans-serif;
+  user-select: none;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+*::before,
+*::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.navigation {
+  width: 3px;
+  height: 400px;
+  background-color: #5C5A56;
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1101;
+  left: 5%;
+}
+.navigation .nav-btn {
+  position: absolute;
+  background-color: #DBD7CE;
+  outline: none;
+  border: 1px solid #C0BCB4;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  left: -25px;
+  cursor: pointer;
+}
+.navigation .nav-btn span {
+  width: 30px;
+  height: 3px;
+  background-color: #5C5A56;
+  display: block;
+  margin: auto;
+}
+.navigation .nav-btn span:nth-child(2) {
+  margin-top: 5px;
+}
+.navigation .nav-btn span:nth-child(3) {
+  margin-top: 5px;
+}
+
+.main-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #C0BCB4;
+  z-index: 1100;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  clip-path: ellipse(0% 0% at 0% 0%);
+  transition: clip-path 0.8s ease-in-out;
+}
+.main-nav .nav-ul {
+  list-style: none;
+}
+.main-nav .nav-ul .nav-li {
+  padding: 20px;
+  transition: all 0.5s ease;
+}
+.main-nav .nav-ul .nav-li .nav-link {
+  font-size: clamp(20px, 10vw, 3rem);
+  color: #5C5A56;
+}
+.main-nav .nav-ul .nav-li:hover {
+  transform: translateX(20%);
+}
+.main-nav::after {
+  content: "FASHION";
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  color: rgba(232, 227, 218, 0.2);
+  font-size: clamp(5rem, 10vw, 15rem);
+  z-index: -1;
+}
+
+.nav-active {
+  clip-path: ellipse(150% 150% at 0% 0%);
+  z-index: 1001;
+}
+
+#nav {
+  padding: 10px 10px;
+}
+#nav .home-container {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+}
+#nav .home-container .logo {
+  font-size: clamp(25px, 2vw, 40px);
+  color: #5C5A56;
+}
+
+#home {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+}
+#home .home-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+#home .home-title .title {
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 10vw, 14rem);
+  line-height: minmax(3.5rem, 14.5rem);
+  text-transform: uppercase;
+  color: #5C5A56;
+}
+#home .home-bars {
+  position: absolute;
+  width: 40%;
+  height: 20px;
+  right: 0;
+  top: 20%;
+}
+#home .home-bars span {
+  display: block;
+  width: 100%;
+  height: 5px;
+  margin-bottom: 15px;
+  background: #5C5A56;
+}
+#home .home-img {
+  z-index: 1000;
+  display: -ms-grid;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  z-index: 1000;
+}
+#home .home-img .img-box {
+  width: 120%;
+  height: 120%;
+  overflow: hidden;
+}
+#home .home-img .img-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+#home .home-img .img-box:hover img {
+  opacity: 0.8;
+}
+@media only screen and (max-width: 768px) {
+  #home .home-img {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 25%);
+  }
+}
+
+#product {
+  overflow: hidden;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 200px;
+}
+#product .container-pro {
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 20px;
+  padding: 20px;
+  position: relative;
+}
+#product .container-pro .product {
+  width: 100%;
+  height: 400px;
+  transition: all 0.5s ease;
+}
+#product .container-pro .product .product-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+#product .container-pro .product .product-info {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  padding: 10px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  z-index: 1001;
+  bottom: 0;
+  background-color: rgba(92, 90, 86, 0.5);
+  color: #E8E3DA;
+  clip-path: ellipse(0% 0% at 0% 0%);
+  transition: all 0.5s ease;
+}
+#product .container-pro .product:hover {
+  box-shadow: 0px 10px 20px -10px #5C5A56;
+  transform: scale(1.02);
+}
+#product .container-pro .product:hover .product-info {
+  clip-path: ellipse(150% 150% at 0% 0%);
+}
+#product .container-pro .product-1 {
+  position: relative;
+  left: -40%;
+}
+#product .container-pro .product-2 {
+  position: relative;
+  left: -40%;
+}
+#product .container-pro .product-3 {
+  position: relative;
+  left: -40%;
+}
+#product .container-pro .product-4 {
+  position: relative;
+  left: -40%;
+}
+@media only screen and (max-width: 575px) {
+  #product .container-pro .product {
+    height: 300px;
+  }
+}
+
+html,
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #E8E3DA;
+}
+
+/*# sourceMappingURL=main.css.map */
