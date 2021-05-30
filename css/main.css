@@ -333,7 +333,6 @@ select {
 #product .container-pro .product {
   width: 100%;
   height: 300px;
-  transform: translate(-20%, 20%);
   transition: all 0.5s ease;
   overflow: hidden;
   margin: auto;
@@ -558,6 +557,18 @@ select {
 }
 #testimonial {
   overflow: hidden;
+  margin-bottom: 200px;
+}
+#testimonial .product-svg {
+  position: relative;
+  left: 5%;
+  animation: product 10s ease infinite;
+  stroke: #5C5A56;
+  fill: transparent;
+}
+#testimonial .product-svg #products-svg {
+  font-size: clamp(3rem, 10vw, 13rem);
+  letter-spacing: 0.2rem;
 }
 #testimonial .test {
   padding: 20px;
@@ -599,6 +610,9 @@ select {
   height: 300px;
   object-fit: cover;
 }
+#testimonial .test-2 {
+  margin-top: 100px;
+}
 @media only screen and (max-width: 625px) {
   #testimonial .test-write {
     max-width: 100% !important;
@@ -611,6 +625,21 @@ select {
   #testimonial .test-products img {
     margin-bottom: 20px;
   }
+}
+
+#contact {
+  overflow: hidden;
+}
+#contact .product-svg {
+  position: relative;
+  left: 5%;
+  animation: product 10s ease infinite;
+  stroke: #5C5A56;
+  fill: transparent;
+}
+#contact .product-svg #products-svg {
+  font-size: clamp(3rem, 10vw, 13rem);
+  letter-spacing: 0.2rem;
 }
 
 html,

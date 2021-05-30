@@ -55,58 +55,6 @@ const product = document.querySelectorAll('.product');
 const productConatiner = document.querySelector('.container-pro');
 const productimg = document.querySelector('.product-img')
 
-function productScroll() {
-  // const scrolled = window.pageYOffset;
-  
-  // let pos = scrolled * 0.20;
-  // let pos2 = scrolled * 0.15;
-
-  const scroll = productConatiner.getBoundingClientRect().top * .2;
-  // const scrr2 = designContainer.getBoundingClientRect().top * .05;
-  console.log(scroll)
-  product.forEach(el =>
-  {
-    if (scroll < 200) {
-      el.style.transform = `translate3d(-${scroll}px, ${scroll}px,${scroll}px)`; 
-      productimg.style.transform = `scale(1.2)`;
-    }
-  })
-  // product.forEach(el =>
-  // {
-  //   let posTransform = `translate3d(-${pos}px, 0,-${pos}px )`
-  //   let pos2ransform = `translate3d(${pos2}px,0px,${pos2}px )`
-
-  //   if (window.scrollY > el.offsetTop) {
-  //     product1.style.transform = posTransform;
-  //     product2.style.transform = posTransform;
-
-  //     product3.style.transform = pos2ransform;
-  //     product4.style.transform = pos2ransform;
-
-  //     if (window.innerWidth < 768) {
-  //       pos = scrolled * 0.10;
-  //       pos2 = scrolled * 0.09;
-  //       pos3 = scrolled * 0.02;
-  //       pos4 = scrolled * 0.01;
-        
-  //       posTransform = `translate3d(-${pos}px, 0,-${pos}px )`
-  //       pos2Transform = `translate3d(-${pos2}px, 0px,${pos2}px )`
-  //       posTransform3 = `translate3d(${pos3}px, 0,0 )`
-  //       posTransform4 = `translate3d(${pos4}px, 0,0 )`
-
-  //       product1.style.transform = posTransform;
-  //       product2.style.transform = pos2Transform;
-        
-  //       product3.style.transform = pos3Transform;
-  //       product4.style.transform =pos4Transform;
-  //     }
-  //   }
-
-  // });
-}
-window.addEventListener('scroll', productScroll);
-
-
 // designer
 
 const designAll = document.querySelectorAll('.designers');
@@ -118,23 +66,44 @@ const designContainer = document.querySelector('.makers');
 const designerHead = document.querySelector('.designer-head')
 
 
-function designScroll()
-{
-  const scrr = designContainer.getBoundingClientRect().top * .4;
-  const scrr2 = designContainer.getBoundingClientRect().top * .05;
+
+function productScroll() {
+
+  const scrollProduct1 = (product1.getBoundingClientRect().top * .1);
+  const scrollProduct2 = (product2.getBoundingClientRect().top * .1);
+  const scrollProduct3 = (product3.getBoundingClientRect().top * .1);
+  const scrollProduct4 = (product4.getBoundingClientRect().top * .1);
+ 
+  if (scrollProduct1 < 300) {
+    product1.style.transform = `translate3d(${scrollProduct1}px, -${scrollProduct1}px,${scrollProduct1}px)`;
+  }
+  if (scrollProduct2 < 300) {
+    product2.style.transform = `translate3d(${scrollProduct2}px, -${scrollProduct2}px,0)`;
+  }
+  if (scrollProduct3 < 300) {
+    product3.style.transform = `translate3d(-${scrollProduct3}px, ${scrollProduct3}px,0)`;
+  }
+  if (scrollProduct4 < 300) {
+    product4.style.transform = `translate3d(-${scrollProduct4}px, ${scrollProduct4}px,0)`;
+  }
+
+
+
+
+  const scrr = designContainer.getBoundingClientRect().top * .2;
+  const scrr2 = designContainer.getBoundingClientRect().top * .02;
 
   designAll.forEach(el =>
   {
     if (scrr < 200) {
-
       el.style.transform = `translate3d(${scrr}px, ${scrr}px,${scrr}px)`;
     }
     if (window.innerWidth < 768) {
-      el.style.transform = `translate3d(0,0,0)`;
+      el.style.transform = `translate3d(${scrr2}px, ${scrr2}px,${scrr2}px)`;
     }
   })
  
-  if (scrr < 300) {
+  if (scrr < 150) {
     designAll.forEach(el =>
     {
       el.classList.add('designer-active')
@@ -147,5 +116,25 @@ function designScroll()
     }) 
   }
   
+
+  // testimonial
+  const test1 = document.querySelector('.test-1')
+  const test2 = document.querySelector('.test-2')
+  const testContainer = document.querySelector('.test-container')
+
+  const testScroll = test1.getBoundingClientRect().top * .1;
+  const testScroll2 = test2.getBoundingClientRect().top * .1;
+
+  if (testScroll < 200) {
+    test1.style.transform = `translate3d(-${testScroll}px, ${testScroll}px,${testScroll}px)`;
+  }
+  if (testScroll2 < 200) {
+    test2.style.transform = `translate3d(${testScroll2}px, -${testScroll2}px,-${testScroll2}px)`; 
+  }
+
+
 }
-window.addEventListener('scroll', designScroll);
+window.addEventListener('scroll', productScroll);
+
+
+
