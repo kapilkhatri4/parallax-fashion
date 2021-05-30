@@ -141,14 +141,10 @@ select {
   }
 }
 .navigation {
-  width: 3px;
-  height: 400px;
-  background-color: #5C5A56;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1101;
-  left: 5%;
+  bottom: 80px;
+  right: 50px;
+  z-index: 1100;
 }
 .navigation .nav-btn {
   position: absolute;
@@ -331,7 +327,7 @@ select {
   position: relative;
 }
 #product .container-pro .product {
-  width: 100%;
+  max-width: 600px;
   height: 300px;
   transition: all 0.5s ease;
   overflow: hidden;
@@ -369,11 +365,6 @@ select {
 @media only screen and (max-width: 768px) {
   #product .container-pro {
     grid-template-columns: repeat(1, 1fr);
-  }
-  #product .container-pro .product {
-    width: 400px;
-    height: 300px;
-    margin: auto;
   }
 }
 
@@ -628,7 +619,16 @@ select {
 }
 
 #contact {
+  width: 100%;
+  padding-bottom: 50px;
   overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#contact .contact-head {
+  width: 100%;
 }
 #contact .product-svg {
   position: relative;
@@ -640,6 +640,51 @@ select {
 #contact .product-svg #products-svg {
   font-size: clamp(3rem, 10vw, 13rem);
   letter-spacing: 0.2rem;
+}
+#contact .logo {
+  margin-bottom: 20px;
+}
+#contact .logo a {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #5C5A56;
+}
+#contact .contact-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+#contact .contact-icon a {
+  margin: 20px;
+  font-size: 1.3rem;
+  color: #5C5A56;
+  border: 1px solid #5C5A56;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.5s ease;
+}
+#contact .contact-icon a:hover {
+  color: #C0BCB4;
+  background-color: #5C5A56;
+}
+#contact .send-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+#contact .send-msg a {
+  color: #5C5A56;
+  margin-bottom: 20px;
+}
+#contact .send-msg textarea {
+  background-color: transparent;
+  outline: none;
 }
 
 html,

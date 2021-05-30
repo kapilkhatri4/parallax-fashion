@@ -1,11 +1,6 @@
-const navpath = document.querySelector('.navigation');
+
 const navBtn = document.querySelector('.nav-btn');
 const body = document.querySelector('body')
-window.addEventListener('scroll', function () {
-  const scrollednav = window.pageYOffset / window.innerHeight;
-  const navpos = scrollednav * 100 ;
-  navBtn.style.transform = `translatey(${navpos}px)`;
-});
 
 const mainNav = document.querySelector('.main-nav');
 navBtn.addEventListener('click', function () {
@@ -75,16 +70,16 @@ function productScroll() {
   const scrollProduct4 = (product4.getBoundingClientRect().top * .1);
  
   if (scrollProduct1 < 300) {
-    product1.style.transform = `translate3d(${scrollProduct1}px, -${scrollProduct1}px,${scrollProduct1}px)`;
+    product1.style.transform = `translate3d(${scrollProduct1}px, 0px,0)`;
   }
   if (scrollProduct2 < 300) {
-    product2.style.transform = `translate3d(${scrollProduct2}px, -${scrollProduct2}px,0)`;
+    product2.style.transform = `translate3d(${scrollProduct2}px, 0px,0)`;
   }
   if (scrollProduct3 < 300) {
-    product3.style.transform = `translate3d(-${scrollProduct3}px, ${scrollProduct3}px,0)`;
+    product3.style.transform = `translate3d(-${scrollProduct3}px, 0,0)`;
   }
   if (scrollProduct4 < 300) {
-    product4.style.transform = `translate3d(-${scrollProduct4}px, ${scrollProduct4}px,0)`;
+    product4.style.transform = `translate3d(-${scrollProduct4}px, 0,0)`;
   }
 
 
@@ -120,8 +115,7 @@ function productScroll() {
   // testimonial
   const test1 = document.querySelector('.test-1')
   const test2 = document.querySelector('.test-2')
-  const testContainer = document.querySelector('.test-container')
-
+ 
   const testScroll = test1.getBoundingClientRect().top * .1;
   const testScroll2 = test2.getBoundingClientRect().top * .1;
 

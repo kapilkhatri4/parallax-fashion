@@ -1,14 +1,11 @@
 @use "abstracts" as *;
 
 .navigation {
-  width: 3px;
-  height: 400px;
-  background-color: $primary-dark;
   position: fixed;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 1101;
-  left: 5%;
+  bottom:80px;
+  right: 50px;
+  z-index: 1100;
+
   .nav-btn {
     position: absolute;
     background-color: $primary-regular;
