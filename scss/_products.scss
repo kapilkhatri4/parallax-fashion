@@ -3,8 +3,20 @@
 #product {
   overflow: hidden;
   width: 100%;
-  min-height: 100vh;
-  margin-top: 200px;
+  height: 100%;
+  position: relative;
+  margin-bottom: 200px;
+  .product-svg{
+    position: relative;
+    left: 5%;
+    animation: product 10s ease infinite;
+    stroke: $primary-dark;
+    fill: transparent;
+    #products-svg{
+      font-size: clamp(3rem, 10vw, 13rem);
+      letter-spacing: .2rem;
+    }
+  }
   .container-pro {
     height: 100%;
     display: grid;
@@ -12,14 +24,19 @@
     grid-gap: 20px;
     padding: 20px;
     position: relative;
+   
     .product {
       width: 100%;
-      height: 400px;
+      height: 300px;
+      transform: translate(-20%, 20%);
       @include transition;
+      overflow: hidden;
+      margin: auto;
       .product-img {
         width: 100%;
         height: 100%;
         object-fit: cover;
+        @include transition;
       }
       .product-info {
         position: absolute;
@@ -45,28 +62,37 @@
         }
       }
     }
-    .product-1 {
-      position: relative;
-      left: -40%;
-    }
-    .product-2 {
-      position: relative;
-      left: -40%;
-    }
-    .product-3 {
-      position: relative;
-      left: -40%;
-    }
-    .product-4 {
-      position: relative;
-      left: -40%;
-    }
+ 
   }
-  @include mq(small) {
+  @include mq(medium) {
     .container-pro {
+      grid-template-columns: repeat(1, 1fr);
       .product {
+        width: 400px;
         height: 300px;
+        margin: auto;
       }
     }
+  }
+}
+@keyframes product {
+  0%{
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    fill: transparent;
+    left: 5%;
+  }
+  50%{
+    left: 30%;
+  }
+  60%{
+    left: 30%;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 50;
+    fill: transparent;
+  }
+  100%{
+    left: 5%;
+    fill: $primary-dark;
   }
 }

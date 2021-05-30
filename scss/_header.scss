@@ -93,8 +93,9 @@
 
 #home {
   position: relative;
-  height: 100vh;
+  height: 100%;
   overflow: hidden;
+  margin-bottom: 200px;
   .home-title {
     position: absolute;
     top: 50%;
