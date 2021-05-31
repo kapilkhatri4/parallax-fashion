@@ -74,6 +74,7 @@
   color: $primary-dark;
   @include transition;
   position: relative;
+  cursor: pointer;
   &::after {
     content: '';
     position: absolute;

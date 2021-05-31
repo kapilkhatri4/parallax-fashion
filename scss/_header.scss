@@ -22,12 +22,19 @@
       background-color: $primary-dark;
       display: block;
       margin: auto;
+      @include transition;
     }
     span:nth-child(2) {
       margin-top: 5px;
     }
+    span:nth-child(2).icon-change {
+      width: 20px;
+    }
     span:nth-child(3) {
       margin-top: 5px;
+    }
+    span:nth-child(3).icon-change {
+      width: 10px;
     }
   }
 }

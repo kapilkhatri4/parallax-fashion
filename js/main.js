@@ -1,9 +1,30 @@
-const navBtn = document.querySelector('.nav-btn');
 const body = document.querySelector('body');
+const cursorEl = document.querySelector('.cursor');
+document.addEventListener('mousemove', function (e) {
+  let cursorMove = {
+    x: 0,
+    y: 0,
+  };
+  cursorMove.x = e.pageX - 60;
+  cursorMove.y = e.pageY - 60;
 
+  cursorEl.style.transform = `translate(${cursorMove.x}px,${cursorMove.y}px)`;
+});
+
+const navBtn = document.querySelector('.nav-btn');
+const navBtnChild2 = document.querySelector('.nav-btn span:nth-child(2');
+const navBtnChild3 = document.querySelector('.nav-btn span:nth-child(3)');
 const mainNav = document.querySelector('.main-nav');
-navBtn.addEventListener('click', function () {
-  mainNav.classList.toggle('nav-active');
+document.addEventListener('click', function (e) {
+  if (e.target.closest('.nav-btn')) {
+    mainNav.classList.toggle('nav-active');
+    navBtnChild2.classList.toggle('icon-change');
+    navBtnChild3.classList.toggle('icon-change');
+  } else {
+    mainNav.classList.remove('nav-active');
+    navBtnChild2.classList.remove('icon-change');
+    navBtnChild3.classList.remove('icon-change');
+  }
 });
 
 const imgContainer = document.querySelector('.home-img');
@@ -79,12 +100,12 @@ function productScroll() {
   }
 
   // design
-  const scrr = designContainer.getBoundingClientRect().top * 0.2;
+  const scrr = designContainer.getBoundingClientRect().top * 0.3;
   const scrr2 = designContainer.getBoundingClientRect().top * 0.01;
 
   designAll.forEach(el => {
     if (scrr < 200) {
-      el.style.transform = `translate3d(${scrr}px, ${scrr}px,${scrr}px)`;
+      el.style.transform = `translate3d(0, ${scrr}px,${scrr}px)`;
     }
     if (window.innerWidth < 768) {
       el.style.transform = `translate3d(${scrr2}px, ${scrr2}px,${scrr2}px)`;
