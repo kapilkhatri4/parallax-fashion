@@ -9,6 +9,9 @@
   }
 }
 @mixin transition {
+  -webkit-transition: all 0.5s ease;
+  -moz-transition: all 0.5s ease;
+  -o-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
 @mixin flex {
@@ -38,14 +41,39 @@
   -ms-grid-row: repeat($size, $width);
 }
 
+@mixin animation {
+  animation: slide 10s ease infinite;
+}
+@keyframes slide {
+  0% {
+    stroke-dasharray: 200;
+    stroke-dashoffset: 200;
+    fill: transparent;
+    left: 0%;
+  }
+  50% {
+    left: 30%;
+  }
+  60% {
+    left: 30%;
+    stroke-dasharray: 700;
+    stroke-dashoffset: 50;
+    fill: transparent;
+  }
+  100% {
+    left: 0%;
+    fill: $primary-dark;
+  }
+}
+
 .btn {
   padding: 0.5rem 1rem;
+  height: 40px;
   background: $primary-light;
   border: 1px solid $primary-dark;
   color: $primary-dark;
   @include transition;
   position: relative;
-
   &::after {
     content: '';
     position: absolute;
@@ -61,40 +89,6 @@
     color: $primary-dark;
     &::after {
       clip-path: ellipse(150% 150% at 0% 0%);
-    }
-  }
-}
-.heading {
-  margin-bottom: 6rem;
-  align-items: center;
-  .ring {
-    width: 30px;
-    height: 30px;
-    border-radius: 100%;
-    border: 2px solid $primary-dark;
-    position: relative;
-    display: inline-block;
-    .line {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 30px;
-      height: 2px;
-      background: $primary-dark;
-    }
-  }
-
-  h1 {
-    color: $primary-dark;
-    margin-left: 2rem;
-    margin-bottom: 1rem;
-    display: inline-block;
-    font-size: 2.5rem;
-    font-weight: 700;
-  }
-  @include mq(small) {
-    h1 {
-      font-size: 1.5rem;
     }
   }
 }

@@ -1,147 +1,145 @@
 @use 'abstracts' as *;
 
-#testimonial{
+#testimonial {
   overflow: hidden;
   margin-bottom: 200px;
-  .product-svg{
+  .product-svg {
     position: relative;
     left: 5%;
-    animation: product 10s ease infinite;
+    @include animation;
     stroke: $primary-dark;
     fill: transparent;
-    #products-svg{
-      font-size: clamp(3rem, 10vw, 13rem);
-      letter-spacing: .2rem;
+    #products-svg {
+      font-size: clamp(3rem, 10vw, 10rem);
+      letter-spacing: 0.2rem;
     }
   }
-  .test{
+  .test {
     padding: 20px;
     position: relative;
     @include transition;
-    .test-img{
-      display: flex;
-      align-items: center;
+    .test-img {
+      @include flex;
+      @include flex-align(center);
       margin-bottom: 20px;
-      img{
+      img {
         width: 100px;
         height: 100px;
         border-radius: 100%;
         margin-right: 50px;
+        object-fit: cover;
       }
-      .test-name{
-        h3{
+      .test-name {
+        h3 {
           font-size: 2rem;
           color: $primary-dark;
         }
-        .ratings{
+        .ratings {
           color: $primary-medium;
         }
       }
     }
-    .test-write{
+    .test-write {
       max-width: 90%;
       margin-bottom: 20px;
-      p{
+      p {
         color: $primary-dark;
         font-size: 1.2rem;
       }
     }
-    .test-products{
-      display: flex;
+    .test-products {
+      @include flex;
       justify-content: space-evenly;
-      img{
-      width: 300px;
-      height: 300px;
-      object-fit: cover;
+      img {
+        width: 300px;
+        height: 300px;
+        object-fit: cover;
       }
     }
   }
-  .test-2{
+  .test-2 {
     margin-top: 100px;
   }
 
-  @media only screen and (max-width : 625px){
-    .test-write{
-      max-width: 100%!important;
+  @media only screen and (max-width: 625px) {
+    .test-write {
+      max-width: 100% !important;
     }
-    .test-products{
+    .test-products {
       flex-direction: column;
       justify-content: center;
-      align-items: center;
-      img{
+      @include flex-align(center);
+      img {
         margin-bottom: 20px;
       }
     }
   }
 }
 
-
-
 //footer
-#contact{
+#contact {
   width: 100%;
   padding-bottom: 50px;
-  .contact-head{
-    width:100%;
+  .contact-head {
+    width: 100%;
   }
   overflow: hidden;
-  display: flex;
+  @include flex;
   justify-content: center;
-  align-items: center;
+  @include flex-align(center);
   flex-direction: column;
-  .product-svg{
+  .product-svg {
     position: relative;
     left: 5%;
-    animation: product 10s ease infinite;
+    @include animation;
     stroke: $primary-dark;
     fill: transparent;
-    #products-svg{
+    #products-svg {
       font-size: clamp(3rem, 10vw, 13rem);
-      letter-spacing: .2rem;
+      letter-spacing: 0.2rem;
     }
   }
-  .logo{
+  .logo {
     margin-bottom: 20px;
-    a{
+    a {
       font-size: 3rem;
       font-weight: bold;
       color: $primary-dark;
-
     }
   }
-  .contact-icon{
-    display: flex;
+  .contact-icon {
+    @include flex;
     justify-content: center;
-    align-items: center;
+    @include flex-align(center);
     flex-wrap: wrap;
-  a{
-    margin: 20px;
-    font-size: 1.3rem;
-    color: $primary-dark;
-    border: 1px solid $primary-dark;
-    border-radius: 100%;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    @include transition;
-    &:hover{
-      color: $primary-medium;
-      background-color: $primary-dark;
+    a {
+      margin: 20px;
+      font-size: 1.3rem;
+      color: $primary-dark;
+      border: 1px solid $primary-dark;
+      border-radius: 100%;
+      width: 50px;
+      height: 50px;
+      @include flex;
+      justify-content: center;
+      @include flex-align(center);
+      @include transition;
+      &:hover {
+        color: $primary-medium;
+        background-color: $primary-dark;
+      }
     }
   }
-  }
-  .send-msg{
-    display: flex;
+  .send-msg {
+    @include flex;
     justify-content: center;
-    align-items: center;
+    @include flex-align(center);
     flex-direction: column;
-    a{
+    a {
       color: $primary-dark;
       margin-bottom: 20px;
     }
-    textarea{
+    textarea {
       background-color: transparent;
       outline: none;
     }

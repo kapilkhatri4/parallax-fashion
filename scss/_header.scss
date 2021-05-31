@@ -2,7 +2,7 @@
 
 .navigation {
   position: fixed;
-  bottom:80px;
+  bottom: 80px;
   right: 50px;
   z-index: 1100;
 
@@ -39,9 +39,9 @@
   height: 100vh;
   background-color: $primary-medium;
   z-index: 1100;
-  display: flex;
+  @include flex;
   justify-content: center;
-  align-items: center;
+  @include flex-align(center);
   clip-path: ellipse(0% 0% at 0% 0%);
   transition: clip-path 0.8s ease-in-out;
 
@@ -62,9 +62,9 @@
   &::after {
     content: 'FASHION';
     position: absolute;
-    display: flex;
+    @include flex;
     justify-content: center;
-    align-items: center;
+    @include flex-align(center);
     width: 100%;
     height: 100%;
     color: rgba($primary-light, 0.2);
@@ -127,7 +127,6 @@
     grid-template-rows: 1fr 1fr;
     justify-content: center;
     align-items: center;
-    // grid-gap: 20px;
     height: 100vh;
     width: 100%;
     z-index: 1000;
@@ -138,7 +137,7 @@
       img {
         width: 100%;
         height: 100%;
-        object-fit: cover;
+        object-fit: contain;
         opacity: 0;
         transition: opacity 0.5s ease;
       }

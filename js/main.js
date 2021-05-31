@@ -1,6 +1,5 @@
-
 const navBtn = document.querySelector('.nav-btn');
-const body = document.querySelector('body')
+const body = document.querySelector('body');
 
 const mainNav = document.querySelector('.main-nav');
 navBtn.addEventListener('click', function () {
@@ -20,9 +19,8 @@ let cursor = {
 };
 
 function moving(e) {
-
   cursor.x = (window.innerWidth / 3 - e.pageX) / 15;
-  cursor.y =(window.innerHeight / 2 - e.pageY) / 20;
+  cursor.y = (window.innerHeight / 2 - e.pageY) / 20;
   this.style.transform = `translate(${cursor.x}px, ${cursor.y}px)`;
 }
 function remove() {
@@ -48,7 +46,7 @@ const product3 = document.querySelector('.product-3');
 const product4 = document.querySelector('.product-4');
 const product = document.querySelectorAll('.product');
 const productConatiner = document.querySelector('.container-pro');
-const productimg = document.querySelector('.product-img')
+const productimg = document.querySelector('.product-img');
 
 // designer
 
@@ -58,17 +56,15 @@ const design2 = document.querySelector('.designer-2');
 const design3 = document.querySelector('.designer-3');
 const design4 = document.querySelector('.designer-4');
 const designContainer = document.querySelector('.makers');
-const designerHead = document.querySelector('.designer-head')
-
-
+const designerHead = document.querySelector('.designer-head');
 
 function productScroll() {
+  // product
+  const scrollProduct1 = product1.getBoundingClientRect().top * 0.1;
+  const scrollProduct2 = product2.getBoundingClientRect().top * 0.1;
+  const scrollProduct3 = product3.getBoundingClientRect().top * 0.1;
+  const scrollProduct4 = product4.getBoundingClientRect().top * 0.1;
 
-  const scrollProduct1 = (product1.getBoundingClientRect().top * .1);
-  const scrollProduct2 = (product2.getBoundingClientRect().top * .1);
-  const scrollProduct3 = (product3.getBoundingClientRect().top * .1);
-  const scrollProduct4 = (product4.getBoundingClientRect().top * .1);
- 
   if (scrollProduct1 < 300) {
     product1.style.transform = `translate3d(${scrollProduct1}px, 0px,0)`;
   }
@@ -82,53 +78,41 @@ function productScroll() {
     product4.style.transform = `translate3d(-${scrollProduct4}px, 0,0)`;
   }
 
+  // design
+  const scrr = designContainer.getBoundingClientRect().top * 0.2;
+  const scrr2 = designContainer.getBoundingClientRect().top * 0.01;
 
-
-
-  const scrr = designContainer.getBoundingClientRect().top * .2;
-  const scrr2 = designContainer.getBoundingClientRect().top * .02;
-
-  designAll.forEach(el =>
-  {
+  designAll.forEach(el => {
     if (scrr < 200) {
       el.style.transform = `translate3d(${scrr}px, ${scrr}px,${scrr}px)`;
     }
     if (window.innerWidth < 768) {
       el.style.transform = `translate3d(${scrr2}px, ${scrr2}px,${scrr2}px)`;
     }
-  })
- 
-  if (scrr < 150) {
-    designAll.forEach(el =>
-    {
-      el.classList.add('designer-active')
-    }) 
+  });
+
+  if (scrr < 100) {
+    designAll.forEach(el => {
+      el.classList.add('designer-active');
+    });
+  } else {
+    designAll.forEach(el => {
+      el.classList.remove('designer-active');
+    });
   }
-  if (scrr < -1000) {
-    designAll.forEach(el =>
-    {
-      el.classList.remove('designer-active')
-    }) 
-  }
-  
 
   // testimonial
-  const test1 = document.querySelector('.test-1')
-  const test2 = document.querySelector('.test-2')
- 
-  const testScroll = test1.getBoundingClientRect().top * .1;
-  const testScroll2 = test2.getBoundingClientRect().top * .1;
+  // testimonial
+  const test1 = document.querySelector('.test-1');
+  const test2 = document.querySelector('.test-2');
+  const testScroll = test1.getBoundingClientRect().top * 0.1;
+  const testScroll2 = test2.getBoundingClientRect().top * 0.1;
 
   if (testScroll < 200) {
     test1.style.transform = `translate3d(-${testScroll}px, ${testScroll}px,${testScroll}px)`;
   }
   if (testScroll2 < 200) {
-    test2.style.transform = `translate3d(${testScroll2}px, -${testScroll2}px,-${testScroll2}px)`; 
+    test2.style.transform = `translate3d(${testScroll2}px, -${testScroll2}px,-${testScroll2}px)`;
   }
-
-
 }
 window.addEventListener('scroll', productScroll);
-
-
-
