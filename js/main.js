@@ -39,9 +39,9 @@ let cursor = {
 };
 
 function moving(e) {
-  cursor.x = -e.pageX / 10;
-  cursor.y = -e.pageY / 10;
-  title.style.transform = `translate3d(${cursor.x}px, ${cursor.y}px, ${cursor.y}px)`;
+  cursor.x = -e.pageX / 30;
+  cursor.y = -e.pageY / 30;
+  title.style.transform = `translate(${cursor.x}px, ${cursor.y}px)`;
 }
 function remove() {
   title.style.transform = `translate(0px, 0px)`;
@@ -50,6 +50,7 @@ homeContainer.addEventListener('mousemove', moving);
 homeContainer.addEventListener('mouseleave', remove);
 
 function titleMove() {
+  title.style.transform = `translateZ(100px)`;
   title.style.textShadow = `2px 10px 10px #5C5A56`;
 }
 function titleRemove() {
