@@ -1,3 +1,4 @@
+// cursor move
 const body = document.querySelector('body');
 const cursorEl = document.querySelector('.cursor');
 document.addEventListener('mousemove', function (e) {
@@ -5,12 +6,13 @@ document.addEventListener('mousemove', function (e) {
     x: 0,
     y: 0,
   };
-  cursorMove.x = e.pageX - 60;
-  cursorMove.y = e.pageY - 60;
+  cursorMove.x = e.pageX;
+  cursorMove.y = e.pageY;
 
   cursorEl.style.transform = `translate(${cursorMove.x}px,${cursorMove.y}px)`;
 });
 
+//nav-btn toggle
 const navBtn = document.querySelector('.nav-btn');
 const navBtnChild2 = document.querySelector('.nav-btn span:nth-child(2');
 const navBtnChild3 = document.querySelector('.nav-btn span:nth-child(3)');
@@ -27,12 +29,9 @@ document.addEventListener('click', function (e) {
   }
 });
 
-const imgContainer = document.querySelector('.home-img');
-const popImg1 = document.querySelector('.img-1');
-const popImg2 = document.querySelector('.img-2');
-const popImg3 = document.querySelector('.img-3');
-const popImg4 = document.querySelector('.img-4');
-const boxImg = document.querySelectorAll('.img-box');
+//home-img move
+const homeContainer = document.querySelector('.home');
+const title = document.querySelector('.title');
 
 let cursor = {
   x: 0,
@@ -40,24 +39,24 @@ let cursor = {
 };
 
 function moving(e) {
-  cursor.x = (window.innerWidth / 3 - e.pageX) / 15;
-  cursor.y = (window.innerHeight / 2 - e.pageY) / 20;
-  this.style.transform = `translate(${cursor.x}px, ${cursor.y}px)`;
+  cursor.x = -e.pageX / 10;
+  cursor.y = -e.pageY / 10;
+  title.style.transform = `translate3d(${cursor.x}px, ${cursor.y}px, ${cursor.y}px)`;
 }
 function remove() {
-  this.style.transform = `translate(0px, 0px)`;
+  title.style.transform = `translate(0px, 0px)`;
 }
-popImg1.addEventListener('mousemove', moving);
-popImg1.addEventListener('mouseleave', remove);
+homeContainer.addEventListener('mousemove', moving);
+homeContainer.addEventListener('mouseleave', remove);
 
-popImg2.addEventListener('mousemove', moving);
-popImg2.addEventListener('mouseleave', remove);
-
-popImg3.addEventListener('mousemove', moving);
-popImg3.addEventListener('mouseleave', remove);
-
-popImg4.addEventListener('mousemove', moving);
-popImg4.addEventListener('mouseleave', remove);
+function titleMove() {
+  title.style.textShadow = `2px 10px 10px #5C5A56`;
+}
+function titleRemove() {
+  title.style.textShadow = `none`;
+}
+title.addEventListener('mouseenter', titleMove);
+title.addEventListener('mouseleave', titleRemove);
 
 // products
 
@@ -72,6 +71,7 @@ const productimg = document.querySelector('.product-img');
 // designer
 
 const designAll = document.querySelectorAll('.designers');
+const designAllImg = document.querySelectorAll('.designers > img');
 const design1 = document.querySelector('.designer-1');
 const design2 = document.querySelector('.designer-2');
 const design3 = document.querySelector('.designer-3');
@@ -112,6 +112,14 @@ function productScroll() {
     }
   });
 
+  designAllImg.forEach(el => {
+    if (scrr < 50) {
+      el.classList.add('design-img-active');
+    } else {
+      el.classList.remove('design-img-active');
+    }
+  });
+
   if (scrr < 100) {
     designAll.forEach(el => {
       el.classList.add('designer-active');
@@ -123,7 +131,7 @@ function productScroll() {
   }
 
   // testimonial
-  // testimonial
+
   const test1 = document.querySelector('.test-1');
   const test2 = document.querySelector('.test-2');
   const testScroll = test1.getBoundingClientRect().top * 0.1;

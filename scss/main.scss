@@ -9,6 +9,7 @@ body {
   scroll-behavior: smooth;
   font-family: 'Montserrat', sans-serif;
   background-color: $primary-light;
+  overflow-x: hidden;
 }
 svg {
   width: 100%;
